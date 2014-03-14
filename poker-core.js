@@ -43,3 +43,27 @@ poker.core.getHandCategory = function(cards) {
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
 }
+
+// フラッシュチェック
+function isFLUSH(cards){
+  var i = 0;
+  for(i = 0; i < cards.length(); i++){
+    // 絵柄が違うかチェック
+    if (cards[i].suit !== cards[i + 1].suit){};
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
