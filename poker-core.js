@@ -48,6 +48,7 @@ function isFLUSH(cards){
   var i = 0;
   for(i = 0; i < cards.length(); i++){
     // 絵柄が違うかチェック
+    // TODO cards[i+1] でオーバフローする
     if (cards[i].suit !== cards[i + 1].suit){
       // 一つでも違う絵柄があれば、false
       return false;
@@ -57,7 +58,14 @@ function isFLUSH(cards){
   return true;
 }
 
-
+/**
+ * ロイヤルストレートか（1 10 11 12 13 で構成されている）？
+ */
+function is1_10_11_12_13(cards){
+  var i = 0;
+  for(i = 0; i < cards.length(); i++){
+  }
+}
 
 
 
