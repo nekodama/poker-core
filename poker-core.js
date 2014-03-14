@@ -37,7 +37,8 @@ poker.core = {};
  */
 poker.core.getHandCategory = function(cards) {
   // TODO: ここに処理を実装します。
-    // どの組み合わせにも当てはまらないならば、ハイカードを返す。
+  // 手札をRankでソート
+  cards = cards.sort(function(a,b){return a.rank - b.rank;});
     if(isFLUSH(cards)){
         return poker.handCategory.FLUSH;
     }
@@ -51,7 +52,6 @@ function isFLUSH(cards){
   var i = 0;
   for(i = 0; i < cards.length - 1; i++){
     // 絵柄が違うかチェック
-    // TODO cards[i+1] でオーバフローする
     if (cards[i].suit !== cards[i + 1].suit){
       // 一つでも違う絵柄があれば、false
       return false;
@@ -65,12 +65,13 @@ function isFLUSH(cards){
  * ロイヤルストレートか（1 10 11 12 13 で構成されている）？
  */
 function is1_10_11_12_13(cards){
+  var royalStraight = [1, 10, 11, 12, 13];
   var i = 0;
-  for(i = 0; i < cards.length(); i++){
+  // cards.rankとroyalStraightを値で比較
+  for(i = 0 ; i < cards.length ; i++){
+    if(cards[i].rank !== royalStraight[i]){return false;}
   }
 }
-
-
 
 
 
