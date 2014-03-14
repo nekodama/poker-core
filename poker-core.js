@@ -46,7 +46,7 @@ poker.core.getHandCategory = function(cards) {
         return poker.handCategory.ROYAL_FLUSH;
       }
       if(straightFlag) {
-          retern poker.handCategory.STRAIGHT_FLUSH;
+          return poker.handCategory.STRAIGHT_FLUSH;
       }
       return poker.handCategory.FLUSH;
     }
@@ -54,6 +54,11 @@ poker.core.getHandCategory = function(cards) {
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
+} 
+
+function isStraight(cards){
+  //TODO ストレートでない場合falseを返す
+  return true;
 }
 
 // フラッシュチェック
@@ -102,7 +107,8 @@ function isPairKindHand(cards) {
         countNumber++;
       }
     }
-  return countNumber;
+    return countNumber;
+  }
 }
 
 
