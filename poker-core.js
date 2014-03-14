@@ -39,9 +39,14 @@ poker.core.getHandCategory = function(cards) {
   // TODO: ここに処理を実装します。
   // 手札をRankでソート
   cards = cards.sort(function(a,b){return a.rank - b.rank;});
+
+  var straightFlag = isStraight(cards);
   if(isFLUSH(cards)){
       if(is1_10_11_12_13(cards)){
         return poker.handCategory.ROYAL_FLUSH;
+      }
+      if(straightFlag) {
+          retern poker.handCategory.STRAIGHT_FLUSH;
       }
       return poker.handCategory.FLUSH;
     }
@@ -78,7 +83,7 @@ function is1_10_11_12_13(cards){
   return true;
 }
  
- //　ぺあ系を判定する
+ //　ペア系を判定する
 function isPairKindHand(cards) {
   var i = 0;
   if (cards[0].rank === cards[3].rank) {
