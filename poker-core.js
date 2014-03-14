@@ -39,7 +39,7 @@ poker.core.getHandCategory = function(cards) {
   // TODO: ここに処理を実装します。
   // 手札をRankでソート
   cards = cards.sort(function(a,b){return a.rank - b.rank;});
-    if(isFLUSH(cards)){
+  if(isFLUSH(cards)){
       if(is1_10_11_12_13(cards)){
         return poker.handCategory.ROYAL_FLUSH;
       }
@@ -90,12 +90,14 @@ function isPairKindHand(cards) {
 
   //  数字が何種類あるかを返す
   function howManyRanks(cards){
-    // iの初期化
+    var i = 0;
     var countNumber = 1;
     for(i = 0 ; i < cards.length - 1 ; i++){
        if(cards[i].rank !== cards[i+1].rank){
         countNumber++;
-        //閉じる
+      }
+    }
+  return countNumber;
 }
 
 
