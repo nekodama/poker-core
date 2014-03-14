@@ -40,7 +40,10 @@ poker.core.getHandCategory = function(cards) {
   // 手札をRankでソート
   cards = cards.sort(function(a,b){return a.rank - b.rank;});
     if(isFLUSH(cards)){
-        return poker.handCategory.FLUSH;
+      if(is1_10_11_12_13(cards)){
+        return poker.handCategory.ROYAL_FLUSH;
+      }
+      return poker.handCategory.FLUSH;
     }
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
@@ -71,6 +74,7 @@ function is1_10_11_12_13(cards){
   for(i = 0 ; i < cards.length ; i++){
     if(cards[i].rank !== royalStraight[i]){return false;}
   }
+  return true;
 }
 
 
