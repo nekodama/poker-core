@@ -57,7 +57,11 @@ poker.core.getHandCategory = function(cards) {
 } 
 
 function isStraight(cards){
-  //TODO ストレートでない場合falseを返す
+  for (i = 0; i < cards.length - 1; i++) {
+    if((cards[i+1].rank - cards[i].rank) != 1){
+      return false;
+    }
+  };
   return true;
 }
 
