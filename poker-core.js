@@ -45,6 +45,7 @@ poker.core.getHandCategory = function(cards) {
       }
       return poker.handCategory.FLUSH;
     }
+    return isPairKindHand(cards);
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
@@ -80,11 +81,13 @@ function is1_10_11_12_13(cards){
  //　ぺあ系を判定する
 function isPairKindHand(cards) {
   var i = 0;
-  if (cards.rank[0] === cards.rank[3]) {
-    return FOUR_OF_A_KIND;
+  if (cards[0].rank === cards[3].rank) {
+    return poker.handCategory.FOUR_OF_A_KIND;
+  }
+  if ((cards[0].rank === cards[2].rank && cards[3].rank === cards[4].rank) || (cards[0].rank === cards[1].rank && cards[2].rank === cards.rank[4])){
+    return poker.handCategory.FULL_HOUSE;
+  }
 }
-
-
 
 
 
