@@ -87,8 +87,16 @@ function isPairKindHand(cards) {
   if ((cards[0].rank === cards[2].rank && cards[3].rank === cards[4].rank) || (cards[0].rank === cards[1].rank && cards[2].rank === cards.rank[4])){
     return poker.handCategory.FULL_HOUSE;
   }
-}
 
+  //  数字が何種類あるかを返す
+  function howManyRanks(cards){
+    // iの初期化
+    var countNumber = 1;
+    for(i = 0 ; i < cards.length - 1 ; i++){
+       if(cards[i].rank !== cards[i+1].rank){
+        countNumber++;
+        //閉じる
+}
 
 
 
