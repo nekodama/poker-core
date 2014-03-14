@@ -37,7 +37,10 @@ poker.core = {};
  */
 poker.core.getHandCategory = function(cards) {
   // TODO: ここに処理を実装します。
-
+    // どの組み合わせにも当てはまらないならば、ハイカードを返す。
+    if(isFLUSH(cards)){
+        return poker.handCategory.FLUSH;
+    }
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
@@ -46,7 +49,7 @@ poker.core.getHandCategory = function(cards) {
 // フラッシュチェック
 function isFLUSH(cards){
   var i = 0;
-  for(i = 0; i < cards.length(); i++){
+  for(i = 0; i < cards.length - 1; i++){
     // 絵柄が違うかチェック
     // TODO cards[i+1] でオーバフローする
     if (cards[i].suit !== cards[i + 1].suit){
