@@ -25,7 +25,7 @@ poker.handCategory = {
 /**
  * コアライブラリ
  * @namespace
- */
+ */                 
 poker.core = {};
 
 
@@ -76,7 +76,13 @@ function is1_10_11_12_13(cards){
   }
   return true;
 }
-
+ 
+ //　ぺあ系を判定する
+function isPairKindHand(cards) {
+  var i = 0;
+  if (cards.rank[0] === cards.rank[3]) {
+    return FOUR_OF_A_KIND;
+}
 
 
 
